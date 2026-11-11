@@ -1,0 +1,6 @@
+{"source": "pos-a", "offset": 1, "transaction_id": "sale", "kind": "BEGIN"}
+{"source": "pos-a", "offset": 2, "transaction_id": "sale", "kind": "CHANGE", "seq": 1, "entity": "order", "business_key": "o1", "source_version": 1, "op": "UPSERT", "items": {"book": 6000, "tea": 2000}}
+{"source": "pos-a", "offset": 3, "transaction_id": "sale", "kind": "COMMIT", "expected_changes": 1}
+{"source": "pos-b", "offset": 1, "transaction_id": "refund", "kind": "BEGIN"}
+{"source": "pos-b", "offset": 2, "transaction_id": "refund", "kind": "CHANGE", "seq": 1, "entity": "refund", "business_key": "r1", "source_version": 1, "op": "UPSERT", "order_key": "o1", "items": {"book": 1500}}
+{"source": "pos-b", "offset": 3, "transaction_id": "refund", "kind": "COMMIT", "expected_changes": 1}
